@@ -13,22 +13,22 @@ public:
     {
         m_pointer = p;
     }
-    SmartPointer(const SmartPointer<T>& obj)  //kaobeigouzao chushi m_pointer jiushi null buxuyao delete duibi operator=
+    SmartPointer(const SmartPointer<T>& obj)  //æ‹·è´æ„é€ å‡½æ•°ç”¨æ¥åˆå§‹åŒ–å¯¹è±¡ï¼Œä¸éœ€è¦å…ˆdelete,å› ä¸ºé»˜è®¤çš„m_pointerå°±æ˜¯NULLï¼Œå¯¹æ¯” operator=
     {
         m_pointer=obj.m_pointer;
-         //´Ë´¦ÊÇÎªÁË±£Ö¤¶Ñ¿Õ¼äÖ»±»Ò»¸öÖÇÄÜÖ¸ÕëÖ¸Ïò£¬Òò´ËÔ­¶ÔÏóÖ¸ÕëÒªÖÃNULL,Ê×ÏÈÀàĞÍ×ª»»£¬ÒòÎª²ÎÊıÊÇconst²»ÄÜĞŞ¸Ä
-        //×¢Òâ£¡£¡ ×ª»»µÄ²ÎÊıÈÔÈ»ÊÇSmartPointer<T>²¢ÇÒÊÇÒıÓÃ
+         //æ­¤å¤„æ˜¯ä¸ºäº†ä¿è¯å †ç©ºé—´åªè¢«ä¸€ä¸ªæ™ºèƒ½æŒ‡é’ˆæŒ‡å‘ï¼Œå› æ­¤åŸå¯¹è±¡æŒ‡é’ˆè¦ç½®NULL,é¦–å…ˆç±»å‹è½¬æ¢ï¼Œå› ä¸ºå‚æ•°æ˜¯constä¸èƒ½ä¿®æ”¹
+        //æ³¨æ„ï¼ï¼ è½¬æ¢çš„å‚æ•°ä»ç„¶æ˜¯SmartPointer<T>å¹¶ä¸”æ˜¯å¼•ç”¨
         const_cast<SmartPointer<T>&>(obj).m_pointer=NULL;
     }
     SmartPointer<T>& operator=(const SmartPointer<T>& obj)
     {
         if(this!=&obj)
         {
-            T* tmp = this->m_pointer;
-              //´Ë´¦ÊÇ·ñÓ¦¸ÃÏÈ±£´æ£¬±Ï¾¹Èç¹ûÊÇÀà¶ÔÏóµÄ»á´¥·¢Îö¹¹º¯Êı£¬ÓĞ¿ÉÄÜÓĞÒì³££¬ºóĞø´ı²âÊÔ!!!!!!!!
+            T* tmp = this->m_pointer;//æ­¤å¤„åº”è¯¥å…ˆä¿å­˜ï¼Œæ¯•ç«Ÿå¦‚æœæ˜¯ç±»å¯¹è±¡çš„ä¼šè§¦å‘ææ„å‡½æ•°ï¼Œæœ‰å¯èƒ½æœ‰å¼‚å¸¸
+              
             m_pointer=obj.m_pointer;
-             //´Ë´¦ÊÇÎªÁË±£Ö¤¶Ñ¿Õ¼äÖ»±»Ò»¸öÖÇÄÜÖ¸ÕëÖ¸Ïò£¬Òò´ËÔ­¶ÔÏóÖ¸Õëqingkong,Ê×ÏÈÀàĞÍ×ª»»£¬ÒòÎª²ÎÊıÊÇconst²»ÄÜĞŞ¸Ä
-            //×¢Òâ£¡£¡ ×ª»»µÄ²ÎÊıÈÔÈ»ÊÇSmartPointer<T>²¢ÇÒÊÇÒıÓÃ
+             //æ­¤å¤„æ˜¯ä¸ºäº†ä¿è¯å †ç©ºé—´åªè¢«ä¸€ä¸ªæ™ºèƒ½æŒ‡é’ˆæŒ‡å‘ï¼Œå› æ­¤åŸå¯¹è±¡æŒ‡é’ˆqingkong,é¦–å…ˆç±»å‹è½¬æ¢ï¼Œå› ä¸ºå‚æ•°æ˜¯constä¸èƒ½ä¿®æ”¹
+            //æ³¨æ„ï¼ï¼ è½¬æ¢çš„å‚æ•°ä»ç„¶æ˜¯SmartPointer<T>å¹¶ä¸”æ˜¯å¼•ç”¨
             delete tmp;
             const_cast<SmartPointer<T>&>(obj).m_pointer=NULL;
         }
