@@ -13,15 +13,16 @@ template<typename T>
 class SeqList:public List<T>
 {
 public:
+    bool insert(const T& e)
     bool insert(int i,const T& e);
     bool remove(int i);
     bool set(int i,const T& e) ;
     bool get(int i,T& e);
     int length() const ;  //这里的const
     void clear();
-    virtual int capacity() = 0:
+    virtual int capacity() = 0; //因为这是线性表序存储的基类，不产生实际对象，因此不需要容量操作
     T& operator[](int i);
-    T operator[](int i) const;//对比两个函数，为什么常量函数返回对象而不是引用,防止返回对象本身，这样就可以转换为非const,对原对象修改，
+    T operator[](int i) const;//对比两个函数，为什么常量函数返回对象而不是引用
 private:
     T* m_array;
     int m_length;
@@ -41,7 +42,13 @@ bool SeqList<T>::insert(int i,const T& e)
         m_length++;
     }
     return ret;
+}
 
+
+template<typename T>
+bool SeqList<T>::insert(const T& e)
+{
+    return insert(m_length,e);
 }
 
 template<typename T>
