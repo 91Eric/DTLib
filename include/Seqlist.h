@@ -2,7 +2,7 @@
 #define _SEQLIST_H_
 
 #include "List.h"
-#include "./include/Exception.h"
+#include "Exception.h"
 #include <new>
 using namespace std;
 
