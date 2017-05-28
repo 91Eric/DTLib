@@ -13,7 +13,7 @@ template<typename T>
 class SeqList:public List<T>
 {
 public:
-    bool insert(const T& e)
+    bool insert(const T& e);
     bool insert(int i,const T& e);
     bool remove(int i);
     bool set(int i,const T& e) ;
