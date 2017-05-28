@@ -2,7 +2,7 @@
 #define _SEQLIST_H_
 
 #include "List.h"
-#include "Exception.h"
+#include "./include/Exception.h"
 #include <new>
 using namespace std;
 
@@ -21,7 +21,7 @@ public:
     void clear();
     virtual int capacity() = 0:
     T& operator[](int i);
-    T operator[](int i) const;//对比两个函数，为什么常量函数返回对象而不是引用？
+    T operator[](int i) const;//对比两个函数，为什么常量函数返回对象而不是引用,防止返回对象本身，这样就可以转换为非const,对原对象修改，
 private:
     T* m_array;
     int m_length;
@@ -62,7 +62,7 @@ bool SeqList<T>::remove(int i)
 template<typename T>
 bool SeqList<T>::get(int i,T& e)
 {
-    int ret =(i>=0)&&(i<m_length);
+    bool ret =(i>=0)&&(i<m_length);
     if(ret)
         e = m_array[i];
     return ret;
@@ -70,7 +70,7 @@ bool SeqList<T>::get(int i,T& e)
 template<typename T>
 bool SeqList<T>::set(int i,const T& e)
 {
-    int ret =(i>=0)&&(i<m_length);
+    bool ret =(i>=0)&&(i<m_length);
     if(ret)
         m_array[i] = e;
     return ret;
@@ -98,11 +98,11 @@ T& SeqList<t>::operator[](int i)
     }
     else
     {
-        //THROW_EXECPTION();
+        THROW_EXECPTION(IndexOutOfBoundsExceptio,"Index is out of boundary!");
     }
 }
 template<typename T>
-T SeqList<t>::operator[](int i) const  //为什么返回对象 而不是引用，因为返回引用的话 就会出现 可以通过 const_cast将其强转为非const从而对常量对象继续宁修改
+T SeqList<t>::operator[](int i) const  //为什么返回对象 而不是引用，因为返回引用的话 就会出现 可以通过 const_cast将其强转为非const从而对常量对象进行修改
 {
     return (const_cast<SeqList<T>&>(*this))[i]; //代码复用， 因为和前面完全一样，注意 怎么从const转为非const
 }

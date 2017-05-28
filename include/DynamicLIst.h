@@ -26,7 +26,7 @@ public:
         }
         else
         {
-
+            THROW_EXECPTION(NoEnoughMemoryException,"No enough memory");
         }
     }
 
