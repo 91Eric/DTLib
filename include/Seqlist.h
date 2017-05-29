@@ -54,7 +54,7 @@ bool SeqList<T>::insert(const T& e)
 template<typename T>
 bool SeqList<T>::remove(int i)
 {
-    bool ret = (i>=0)&&(i<m_length)  //注意此处 没有等号，和insert函数进行对比！！！！
+    bool ret = (i>=0)&&(i<m_length);  //注意此处 没有等号，和insert函数进行对比！！！！
     if(ret)
     {
         for(int j = i;j<m_length-1;j++)

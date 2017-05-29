@@ -89,7 +89,11 @@ public:
     NoEnoughMemoryException(const char* message,const char* file,int line):Exception(message,file,line){}
 
     NoEnoughMemoryException(const NoEnoughMemoryException& e):Exception(e){}
-
+    NoEnoughMemoryException& operator =(const NoEnoughMemoryException& e)
+    {
+        Exception::operator =(e);
+        return *this;
+    }
 
 };
 class InvalidParameterException:public Exception  //参数错误
