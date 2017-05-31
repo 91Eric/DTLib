@@ -1,7 +1,7 @@
 /*
 * @brief : 单链表模板实现
 * @author: Eric
-* @data  : 20170530
+* @data  : 20170531
 * @other:
 */
 #ifndef _LINKLIST_H_
