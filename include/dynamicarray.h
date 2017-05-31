@@ -1,7 +1,7 @@
 /*
 * @brief : 动态数组类模板的实现，继承自Array这一模板类
 * @author: Eric
-* @data:
+* @data: 20170529
 * @other: 对于存在的代码重复可以进一步进行代码优化
 */
 
@@ -26,10 +26,9 @@ public:
     DynamicArray(int length);
     DynamicArray(const DynamicArray<T>& e);
     DynamicArray<T>& operator= (const DynamicArray<T>& e);  //DynamicArray& operator= (const DynamicArray& e); 忘记加<>!!
+
     int length() const;
-
     void resize(int length);
-
 
     ~DynamicArray()
     {

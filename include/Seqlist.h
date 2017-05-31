@@ -1,3 +1,9 @@
+/*
+* @brief : 顺序表：基于顺序存储结构的线性表
+* @author: Eric
+* @data  : 20150527
+* @other :
+*/
 #ifndef _SEQLIST_H_
 #define _SEQLIST_H_
 
@@ -17,7 +23,7 @@ public:
     bool insert(int i,const T& e);
     bool remove(int i);
     bool set(int i,const T& e) ;
-    bool get(int i,T& e);
+    bool get(int i,T& e) const;
     int length() const ;  //这里的const
     void clear();
     virtual int capacity() = 0; //因为这是线性表序存储的基类，不产生实际对象，因此不需要容量操作
@@ -67,7 +73,7 @@ bool SeqList<T>::remove(int i)
 }
 
 template<typename T>
-bool SeqList<T>::get(int i,T& e)
+bool SeqList<T>::get(int i,T& e) const
 {
     bool ret =(i>=0)&&(i<m_length);
     if(ret)
